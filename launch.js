@@ -33,10 +33,10 @@
         return hexGL.start();
       },
       onError: function(s) {
-        return console.error("Error loading " + s + ".");
+        return console.error("读取 " + s + "出错。");
       },
       onProgress: function(p, t, n) {
-        console.log("LOADED " + t + " : " + n + " ( " + p.loaded + " / " + p.total + " ).");
+        console.log("读取 " + t + " : " + n + " ( " + p.loaded + " / " + p.total + " ).");
         return progressbar.style.width = "" + (p.loaded / p.total * 100) + "%";
       }
     });
@@ -46,7 +46,7 @@
 
   defaultControls = bkcore.Utils.isTouchDevice() ? 1 : 0;
 
-  s = [['controlType', ['KEYBOARD', 'TOUCH', 'LEAP MOTION CONTROLLER', 'GAMEPAD'], defaultControls, defaultControls, 'Controls: '], ['quality', ['LOW', 'MID', 'HIGH', 'VERY HIGH'], 3, 3, 'Quality: '], ['hud', ['OFF', 'ON'], 1, 1, 'HUD: '], ['godmode', ['OFF', 'ON'], 0, 1, 'Godmode: ']];
+  s = [['controlType', ['键盘', '触摸屏', '跳跃运动控制器', '游戏手柄'], defaultControls, defaultControls, '操控: '], ['quality', ['低', '中', '高', '最好'], 3, 3, '画面: '], ['hud', ['关', '开'], 1, 1, 'HUD: '], ['godmode', ['关', '开'], 0, 1, '上帝模式: ']];
 
   _fn = function(a) {
     var e, f, _ref;
@@ -101,7 +101,7 @@
 
   if (!hasWebGL()) {
     getWebGL = $('start');
-    getWebGL.innerHTML = 'WebGL is not supported!';
+    getWebGL.innerHTML = '你的浏览器不支持WebGL!';
     getWebGL.onclick = function() {
       return window.location.href = 'http://get.webgl.org/';
     };
